@@ -6,16 +6,16 @@
       "label": "C/C++: clang++ build active file",
       "command": "clang++",
       "args": [
-        "-g",
+        // "-g",
         "-std=c++20",
         "-stdlib=libc++",
-        "-I${workspaceFolder}/include",		
-        "${workspaceFolder}/main.cpp",
+        "-I./include",
+        "./main.cpp",
         "-o",
-        "${workspaceFolder}/main",
+        "./main",
       ],
       "options": {
-        "cwd": "${workspaceFolder}"
+        "cwd": "./"
       },
       "problemMatcher": [
         "$gcc"

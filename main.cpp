@@ -7,16 +7,16 @@
 #include <stb_image_resize.h>
 
 static const char CHARS[] {
-  ' ', '.', '-', '+', '=', 'S', 'M', 'W'
+  ' ', '`', '.', '_', '-', '|', 'L', 'I', '+', '=', '*', 'G', 'S', '&', '#', '@', 'M', 'W'
 };
 
 char getChar(unsigned char pixel) {
   size_t p {0};
   for (size_t i {0}; i < sizeof(CHARS); i++) {
-    if (pixel >= p && pixel <= (i + 1) * 32 - 1) {
+    if (pixel >= p && pixel <= (i + 1) * 16 - 1) {
       return CHARS[i];
     }
-    p = (i + 1) * 32;
+    p = (i + 1) * 16;
   }
   return ' ';
 }
@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
   }
   std::cout << "width: " << width << " height: " << height << " channels: " << nrChannels << std::endl;
   if (width > 128) {
-    unsigned char * newImg {new unsigned char[128 * ((width / height) * 128) * nrChannels]};
+    unsigned char * newImg {new unsigned char[128 * (int) (((float) width / (float) height) * 128.0f) * nrChannels]};
     int code {stbir_resize_uint8(
       img, width, height, 0, newImg, 128,
       (int) (((float) width / (float) height) * 128.0f), 0, nrChannels)};

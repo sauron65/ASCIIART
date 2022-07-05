@@ -2,7 +2,7 @@
 
 C++ program to make ASCII art.
 
-Currently uses just 8 characters but ¯\\_(ツ)_/¯
+Currently uses just 16 characters but ¯\\\_(ツ)\_/¯
 
 ## usage
 ```sh
